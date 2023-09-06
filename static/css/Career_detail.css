@@ -1,0 +1,89 @@
+#Career{
+    color: white;
+}
+
+.detailcont{
+    margin: 10px auto 10px auto;
+    width:80%;
+}
+.head{
+    text-align: center;
+    padding:10px;
+    background:#c0d1e0;
+}
+.Cop{
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: large;
+    font-weight: 900;
+    font-family: Georgia, serif;
+    margin-top: 20px;
+    padding: 10px;
+    background:#0080f08c;
+    color: #f41313;
+}
+.askquebtn, .h2{
+    text-align: center;
+    width: 53%;
+    margin:10px auto;
+    text-decoration:none;
+    background-color:#b5d8f7;
+    color: #6d3c3ca3;
+    border-radius:10px;
+    padding: 4px;
+}
+.questionheading{
+    font-size: x-large;
+    margin:5px;
+}
+.askedque{
+    padding: 20px;
+    margin:10px;
+    border: 1px solid black;
+}
+.quedetails{
+    margin: 10px 3px;
+    font-size: large;
+}
+
+.quetitle,
+.details{
+    text-decoration:none;
+    font-size: large;
+    color:#000000;
+}
+.quetitle:hover, #username:hover{
+    text-decoration: underline;
+}
+
+.Askquestion{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+label{
+    margin:10px 0px;
+    font-size: large;
+}
+
+.quefield input[type='text'] , textarea{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+    width: 100%;
+    
+}
+
+.postquestion{
+    margin: 10px auto 0px auto;    
+    width:30%;
+    padding: 5px;
+    background-color: #9978f9;
+    cursor:pointer;
+    border:1px solid black;
+    border-radius: 10px;
+}

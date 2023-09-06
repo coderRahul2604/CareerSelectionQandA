@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+body{
+    background-image: url('../img/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+}
+
+.auth{
+    margin-top: 5%;
+    margin-right: auto;
+    margin-bottom: 10%;
+    margin-left: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffffd6;
+    opacity: 0.8;
+}
+h1{
+    text-align: center;
+    font-size: 30px;
+}
+.alreadyRegistered{
+    margin: 0px auto;
+    width: 50%;
+}
+.alreadyRegistered p,
+.alreadyRegistered button {
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+
+.alreadyRegistered button {
+    background: none;
+    border:none;
+    cursor: pointer;
+    margin-left: 10px;
+    width:20%;
+    color: white;
+    text-decoration: underline;
+}
+
+input[type=text],
+input[type=password],
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: inherit;
+}
+::placeholder{
+    color: black;
+}
+
+button{
+    margin: 2% 25%;
+    width: 50%;
+    background-color: #aad0aa;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #c8f4c8d4;
+}
+

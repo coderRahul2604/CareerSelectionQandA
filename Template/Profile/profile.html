@@ -1,0 +1,229 @@
+{% extends '../base.html' %}
+
+{% block title %}my-profile{% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/profile.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="leftbtn">
+
+    <button onclick="showProfile()" class="profilebtn" id="probtn" style="cursor:pointer;">My Profile</button>
+
+    <button onclick="showQuestions()" class="questionbtn" style="cursor:pointer;">Questions</button>
+
+    <button onclick="showAnswers()" class="answerbtn" style="cursor:pointer;">Answers</button>
+
+    <button onclick="showComments()" class="commentbtn" style="cursor:pointer;">Comments</button>
+
+    <button onclick="showLikedquestion()" class="likebtn" style="cursor:pointer;">Likes</button>
+
+    <button onclick="showDislikedquestion()" class="dislikebtn" style="cursor:pointer;">Dislike</button>
+
+</div>
+
+<div class="rightinfo">
+
+
+    <div class="myProfile" id="myProfile">
+        <h1 class="myProfileHead">My Profile</h1>
+        <div class="Content">
+            <label for="Username" style="font-size: 26px;">Username</label>
+            <p style="font-size: 21px;">{{user.username}}</p>
+            <hr>
+            <br>
+
+            <label for="userEmail" style="font-size: 26px;">Email</label>
+            <p style="font-size: 21px;">{{user.email}}</p>
+            <hr>
+            <br>
+
+            <label for="userBio" style="font-size: 26px;">Bio</label>
+            <p style="font-size: 21px;">{{user.profile.bio}}</p>
+            <hr>
+            <br>
+        </div>
+    </div>
+
+
+    <div class="userQuestion" id="userQuestions" style="display:none;">
+        <h1 class="UserQuestionHead">Questions</h1>
+        <div class="Content">
+
+            {% if questions %}
+            <ol type="number">
+                {% for question in questions %}
+                <li style="margin-top: 10px; font-size: large;"><a href="/Question/Detailque/{{question.id}}">{{ question.title }}</a></li>
+                {% endfor %}
+            </ol>
+            {% else %}
+            <p>No questions asked yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="userAnswer" id="userAnswers" style="display:none;">
+        <h1 class="UserAnswerHead">Answers</h1>
+        <div class="Content">
+
+            {% if answers %}
+            <ol type="number">
+                {% for answer in answers %}
+                <li style="margin-top: 20px;">
+                    <a href="/Question/Detailque/{{answer.question.id}}" style="font-size: 23px; color: black; ">{{ answer.question }}</a>
+                    <p style="border: 1px solid black; padding: 5px; font-size: large; margin-bottom: 5px;">{{answer.detail}}</p>
+                </li>
+                {% endfor %}
+            </ol>
+            {% else %}
+            <p>No answer yet.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <div class="userComment" id="userComments" style="display:none;">
+        <h1 class="UserCommentHead">Comments</h1>
+        <div class="Content">
+
+            {% if comments %}
+            <ul type="none">
+                {% for comment in comments %}
+                <li style="border: 1px solid black; margin-top: 10px; padding: 5px;">
+                    Comment For " 
+                    <a href="/Question/Detailque/{{comment.answer.question.id}}" style="color: black; font-size: 18px;">{{ comment.answer }}</a> " this answer.
+                    <p style="font-size: 18px;">{{comment.detail}}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No comment yet.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <div class="userLike" id="userLikes" style="display:none;">
+        <h1 class="UserLikeHead">Liked Answers</h1>
+        <div class="Content">
+
+            {% if likes %}
+            <ol type="number">
+                {% for like in likes %}
+                <li>
+                    <label style="font-size: 23px;">Answer for : </label>
+                    <a href="/Question/Detailque/{{like.answer.question.id}}" style="font-size: 23px;">{{ like.answer.question }}</a>
+                    <p style="border: 1px solid black; padding: 5px; font-size: large; margin-bottom: 5px;">{{like.answer.detail}}</p>
+                </li>
+                {% endfor %}
+            </ol>
+            {% else %}
+            <p>No Liked Answers yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="userDisLike" id="userDisLikes" style="display:none;">
+        <h1 class="UserDislikeHead">Disliked Answers</h1>
+        <div class="Content">
+
+            {% if dislikes %}
+            <ol type="number">
+                {% for dislike in dislikes %}
+                <li>
+                    <label style="font-size: 23px;">Answer for : </label>
+                    <a href="/Question/Detailque/{{dislike.answer.question.id}}" style="font-size: 23px;">{{ dislike.answer.question }}</a>
+                    <p style="border: 1px solid black; padding: 5px; font-size: large; margin-bottom: 5px;">{{dislike.answer.detail}}</p>
+                </li>
+                {% endfor %}
+            </ol>
+            {% else %}
+            <p>No disliked yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    var profile = document.getElementById("myProfile");
+    var userQuestions = document.getElementById("userQuestions");
+    var userAnswer = document.getElementById("userAnswers");
+    var userComment = document.getElementById("userComments");
+    var userLike = document.getElementById("userLikes");
+    var userDislike = document.getElementById("userDisLikes");
+
+    function showProfile() {
+        profile.style.display = "block";
+        userQuestions.style.display = "none";
+        userAnswer.style.display = "none";
+        userComment.style.display = "none";
+        userDislike.style.display = "none";
+        userLike.style.display = "none";
+
+    }
+
+    function showQuestions() {
+
+        profile.style.display = "none";
+        userQuestions.style.display = "block";
+        userAnswer.style.display = "none";
+        userComment.style.display = "none";
+        userDislike.style.display = "none";
+        userLike.style.display = "none";
+
+    }
+
+    function showAnswers() {
+
+        profile.style.display = "none";
+        userQuestions.style.display = "none";
+        userAnswer.style.display = "block";
+        userComment.style.display = "none";
+        userDislike.style.display = "none";
+        userLike.style.display = "none";
+
+    }
+
+    function showComments() {
+
+
+        profile.style.display = "none";
+        userQuestions.style.display = "none";
+        userAnswer.style.display = "none";
+        userComment.style.display = "block";
+        userDislike.style.display = "none";
+        userLike.style.display = "none";
+
+    }
+
+    function showLikedquestion() {
+        profile.style.display = "none";
+        userQuestions.style.display = "none";
+        userAnswer.style.display = "none";
+        userComment.style.display = "none";
+        userLike.style.display = "block";
+        userDislike.style.display = "none";
+
+    }
+
+    function showDislikedquestion() {
+
+
+        profile.style.display = "none";
+        userQuestions.style.display = "none";
+        userAnswer.style.display = "none";
+        userComment.style.display = "none";
+        userLike.style.display = "none";
+        userDislike.style.display = "block";;
+
+    }
+
+</script>
+
+{% endblock body %}

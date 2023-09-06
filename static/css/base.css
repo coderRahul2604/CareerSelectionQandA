@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.H {
+    display: flex;
+    padding: 10px;
+    background: rgb(22, 81, 106);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.cap {
+    font-size: 30px;
+    color: white;
+
+}
+
+.headcont {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.H1 {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Exo', sans-serif;
+    font-size: 15px;
+    color: white;
+    padding-left: 3%;
+
+}
+
+.TM {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    color: white;
+    margin-top: -5px;
+    margin-left: 1px;
+
+}
+.navbar {
+    margin-top: 20px;
+}
+.nav {
+    display: flex;
+    text-align: center;
+}
+
+.navlink {
+    text-decoration: none;
+    font-size: large;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.745);
+    align-self: center;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.navlink:hover {
+    color: white;
+}
+
+.S {
+    display: flex;
+    align-self: center;
+    margin-left: 60px;
+}
+
+.search {
+    min-width: 60px;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.auth {
+    margin-top: 20px;
+}
+
+
+.btnsearch {
+    margin-left: 3px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: rgb(158 158 158 / 81%);
+    padding: 7px 24px;
+    cursor: pointer;
+}
+
+.btnsearch:hover,
+.bropbtn:hover,
+.dropbtn:focus {
+    background-color: rgb(158 158 158);
+}
+
+.dropbtn {
+    background-color: rgb(158 158 158 / 81%);
+    margin: 13px 10px;
+    border-radius: 10px;
+    color: black;
+    padding: 7px 24px;
+    font-size: 14px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+  }
+  
+  .alert.success {background-color: #04AA6D;}
+  .alert.info {background-color: #2196F3;}
+  .alert.warning {background-color: #ff9800;}
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+
+
+.closebtn:hover {
+    color: black;
+}
+
+.open-button,
+.open-signup-button {
+    background-color: rgb(115, 240, 146);
+    color: rgb(0, 0, 0);
+    margin: -7px 0px 0px 10px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.form-popup,
+.form-signup-popup {
+    display: none;
+    position: fixed;
+    bottom: 240px;
+    right: 15px;
+    z-index: 9;
+}
+
+.form-signup-popup {
+    bottom: 50px;
+}
+
+.form-container,
+.form-signup-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.form-container input[type=text],
+.form-container input[type=password],
+.form-signup-container input[type=text],
+.form-signup-container input[type=email],
+.form-signup-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-radius: 10px;
+    background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus,
+.form-signup-container input[type=text]:focus,
+.form-signup-container input[type=email]:focus,
+.form-signup-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn,
+.form-signup-container .signup-btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel,
+.form-signup-container .cancel {
+    background-color: white;
+    border:none;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.x{
+    text-align: end;
+}
+.form-container .btn:hover,
+.open-button:hover,
+.form-signup-container .signup-btn:hover,
+.open-button:hover,
+.open-signup-button:hover {
+    opacity: 1;
+}
+

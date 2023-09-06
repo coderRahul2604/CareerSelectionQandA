@@ -1,0 +1,32 @@
+.Askquestion{
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto 0px auto;
+    width:50%;
+}
+.Askquehead{
+    text-align: center;
+    color: #ff0700c2;
+}
+
+label{
+    margin:10px 0px;
+    font-size: large;
+}
+
+.quefield input[type='text'] , textarea{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+    
+}
+
+.postquestion{
+    margin: 10px auto 0px auto;    
+    width:30%;
+    padding: 5px;
+    background-color: #9978f9;
+    cursor:pointer;
+    border:1px solid black;
+    border-radius: 10px;
+}

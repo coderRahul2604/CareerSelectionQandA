@@ -1,0 +1,57 @@
+#Question{
+    color: white;
+}
+
+.cont{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 10px;
+    box-shadow: 2px 2px 4px 4px gray;
+}
+.quesearch input[type=text]{
+    width: 60%;
+    font-size: 20px;
+    padding:5px;
+    border-radius: 10px;
+    border:1px solid black;
+}
+.quesearch button,.askquestion{
+    padding:7px 24px;
+    font-size:20px;
+    background: rgb(158 158 158 / 81%);
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    border:1px solid black;
+}
+.quesearch{
+    text-align: center;
+    margin: 10px;
+}
+.que{
+    text-align: center;
+}
+.quesecbox{
+    text-align: center;
+}
+
+.askedque{
+    padding: 20px;
+    margin:10px;
+    border: 1px solid black;
+}
+.quedetails{
+    margin: 10px 3px;
+    font-size: large;
+}
+.quetitle,
+.details{
+    text-decoration:none;
+    font-size: large;
+    color:black;
+}
+.quetitle:hover, #username:hover{
+    text-decoration: underline;
+}

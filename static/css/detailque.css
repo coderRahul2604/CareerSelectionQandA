@@ -1,0 +1,99 @@
+#Question {
+    color: white;
+}
+
+.multipleans,
+.quedetail {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    box-shadow: 2px 2px 4px 4px #b3b3cda8;
+}
+
+.quehead {
+    padding: 20px;
+}
+.answerhead{
+    margin: 10px;
+    font-size: xx-large;
+}
+
+.queheaddate,
+.queheaduser,
+.ansdate,
+.ansuser {
+    margin: 10px 20px 0px 0px;
+}
+
+.detailcont{
+    margin: -10px 25px;
+    font-size: 20px;
+}
+
+.questtags{
+    padding-bottom: 10px;
+}
+
+.anscont{
+    font-size: 20px;
+}
+.anscont,
+.commentcont,
+.form {
+    margin-top: 10px;
+    padding: 20px;
+}
+.commentForm{
+  margin-top: 10px;
+}
+.commentcont,
+.form {
+    margin-top: -20px;
+    display: none;
+}
+.comdetail{
+    font-size: 18px;
+    margin: 10px;
+}
+.commentcont{
+  margin-top: -40px;
+}
+
+.addcomment {
+  width: 30%;
+  margin-top: 10px;
+  padding:10px;
+  background: #9191c1;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.comment{
+  width: 40%;
+  height: 4vh;
+}
+.likedislike{
+    display:flex;
+    margin: 10px;
+}
+.like, .dislike, .com{
+    margin-left: 10px;
+    font-size: 25px;
+    display:flex;
+    flex-direction: column;
+}
+
+#useranswer{
+    margin:5px;
+    width: 70%;
+    padding: 5px;
+    border:1px solid black;
+}
+
+.addanswer{
+    margin: 5px;
+    padding:10px;
+    background: #9191c1;
+    border: 1px solid black;
+    cursor: pointer;
+}

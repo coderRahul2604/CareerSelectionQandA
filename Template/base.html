@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+    <title>{% block title %} {% endblock%}</title>
+    <style>
+        .container {
+            display: none;
+            cursor: pointer;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 3px;
+        }
+        
+        .bar1, .bar2, .bar3 {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        #resbar{
+            display: none;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1235px) {
+            .container{
+                display: block;
+            }
+            .navbar{
+                display: none;
+            }
+            .resnavlink{
+                color: white;
+                margin: 10px;
+            }
+            #resbar{
+                display: flex;
+                flex-direction: row;
+                position: fixed;
+                background-color: #000000a6;
+                margin: 10px;
+                padding: 30px;
+            }
+            .S,.dropdown,.auth{
+                margin-left: 90px;
+            }
+        }
+    @media only screen and (min-width: 768px) and (max-width: 1000px){
+        .S,.dropdown,.auth{
+            margin-left:30px;
+        }
+    }
+        </style>
+    {% block css %}
+    {% endblock css %}
+
+</head>
+
+<body>
+    <div class="H">
+        <div class="container" onclick="Bar()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="headcont">
+            <div class="H1">
+                <h2><span class="cap">F</span class="cap">ind <span class="cap">C</span class="cap">areer <span
+                    class="TM">Action Taker</span> </h2>
+                </div>
+        </div>
+
+        
+        <div class="nav">
+            <div class="navbar">
+                <a href="/" class="navlink" id="Home">Home</a>
+                <a href="/Career" class="navlink" id="Career">Career</a>
+                <a href="/Question" class="navlink" id="Question">Question</a>
+                <a href="/About" class="navlink" id="About">About</a>
+            </div>
+            <div class="S">
+                <form action="/">
+                    <input type="text" name="career" placeholder="Search Career" class="search">
+                    <button type="submit" class="btnsearch">Search</button>
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">{{request.user}}</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/profile/{{request.user}}">Profile</a>
+                    <a href="/Logout">Logout</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="auth">
+                <button class="open-button" onclick="openForm()">Login</button>
+                <button class="open-signup-button" onclick="openSignup()">Signup</button>
+            </div>
+            
+            {% endif %}
+            {% if request.user.is_superuser %}
+            <a href="/report" class="dropbtn" id="Report" style="text-decoration: none;">Report</a>
+            {% endif %}
+        </div>
+        
+    </div>
+    {% for message in messages %}
+    <div class="alert {{message.tags}}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Message: </strong> {{message}}
+    </div>
+    {% endfor %}
+    
+    <div class="form-popup" id="login-Form">
+        <form action="/Login" method="POST" class="form-container" tabindex="0" onblur="closeForm()">
+            {% csrf_token %}
+            <p class="x"><button type="button" class="cancel" onclick="closeForm()">X</button></p>
+            
+            <h1>Login</h1>
+            
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="loginusername" autofocus required>
+            
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="loginpassword" required>
+        
+            <button type="submit" class="btn">Login</button>
+            
+            <a href="/forgotpass" style="float:right;">Forgot Password</a>
+        </form>
+    </div>
+    
+    <div class="form-signup-popup" id="signup-Form" tabindex="0" onblur="closeSignupForm()">
+        <form action="/Signup" method="POST" class="form-signup-container">
+            {% csrf_token %}
+            <p class="x"><button type="button" class="cancel" onclick="closeSignupForm()">X</button></p>
+            <h1>Signup</h1>
+            
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            
+            <label for="pass1"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pass1" required>
+
+            <label for="pass2"><b>Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="pass2" required>
+            
+            <button type="submit" class="signup-btn">Signup</button>
+        </form>
+    </div>
+    <div id="resbar" style="display:none;">
+        <p><a href="/" class="resnavlink" >Home</a></p>
+        <p><a href="/Career" class="resnavlink" >Career</a></p>
+        <p><a href="/Question" class="resnavlink" >Question</a></p>
+        <p><a href="/About" class="resnavlink" >About</a></p>
+    </div>
+    
+    {% block body %} {% endblock %}
+    
+    <script>
+        
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+
+                    var div = this.parentElement;
+                    
+                div.style.opacity = "0";
+
+                setTimeout(function () { div.style.display = "none"; }, 600);
+            }
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        function openForm() {
+            document.getElementById("login-Form").style.display = "block";
+            document.getElementById("signup-Form").style.display = "none";
+        }
+
+        function openSignup() {
+            document.getElementById("signup-Form").style.display = "block";
+            document.getElementById("login-Form").style.display = "none";
+
+        }
+
+        function closeForm() {
+            document.getElementById("login-Form").style.display = "none";
+        }
+
+        function closeSignupForm() {
+            document.getElementById("signup-Form").style.display = "none";
+        }
+        function Bar(){
+            var bar=document.getElementById("resbar");
+            if(bar.style.display=='none'){
+                bar.style.display="block";
+            }
+            else{
+                bar.style.display='none';
+            }
+        }
+    </script>
+    <script>
+        {% block script %}
+        {% endblock script %}
+    </script>
+</body>

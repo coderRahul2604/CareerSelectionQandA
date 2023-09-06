@@ -1,0 +1,143 @@
+#Home{
+    color: white;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+.text {
+    display:flex;
+    text-align: center;
+    margin-top: 40px;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
+.textbox{
+    margin: 10px auto 10px auto;
+}
+
+.askquestion, .giveans, .selectCareer{
+    display:block;
+    background:#80b7e7;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    width:50%;
+    text-decoration: none;
+    color:#000000d9;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.selectCareer{
+    padding: 13px;
+}
+
+.askquestion:hover, .giveans:hover, .selectCareer:hover{
+    box-shadow: 4px 4px 4px 4px #736aa9;
+}
+
+.slide1,
+.slide2,
+.slide3,
+.slide4 {
+    width: 100%;
+    height: 72vh;
+    margin: 1px;
+}
+.oph1
+{
+    margin-top: 30px;
+    font-size: 40px;
+    color: #2b4752;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.op1{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.opc1{
+    text-align: center;
+    margin-top: 9px;
+    width: 250px;
+    height: 28vh;
+}
+.careerName{
+    font-size: 20px;
+}
+
+.opc1:hover{
+    box-shadow: 4px 4px 6px rgb(169, 160, 162);
+}
+@media only screen and (max-width: 750px){
+    .main{
+        min-width: 300px;
+    }
+    .text {
+        font-size: 25px;
+        font-family: 'Pacifico', cursive;
+        text-align: center;
+        font-weight: 100;
+        background-color: rgb(200, 226, 217);
+        color: rgb(203, 147, 190);
+        padding: 20px;
+    
+    }
+    
+    .slideContener {
+        background-color: rgb(212, 237, 228);
+        align-content: center;
+    }
+    
+    .slide1,
+    .slide2,
+    .slide3,
+    .slide4 {
+        margin-left: 50px;
+        width: 160px;
+        height: 18vh;
+        padding: 1vh;
+    }
+    
+    .options1{
+        background: rgb(245, 241, 241);
+    }
+    
+    .oph1{
+        font-size: large;
+        padding: 7px;
+    }
+    
+    .ch1{
+        color: blue;
+        text-decoration: none;
+    }
+    
+    .op1{
+        
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .opc1{
+
+        text-align: center;
+        margin: 30px 2px 2px 2px;
+        width: 250px;
+        height: 23vh;
+    }
+    
+    .opc1:hover{
+        padding: 2px;
+        background-color: rgb(212, 238, 212);
+    }
+}

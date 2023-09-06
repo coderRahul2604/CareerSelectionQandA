@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Ask Question {% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Askquestion.css' %}">
+{% endblock css %}
+
+{% block body %}
+<form action="/Askquestion" method="post" class="Askquestion">
+    {% csrf_token %}
+    <h1 class="Askquehead">Ask Question</h1>
+    
+    <label for="Question">Question</label>
+    <input class="quefield" type="text" name="quetitle" id="quetitle" placeholder="Write question" required style="padding: 6px; border-radius: 5px; border: 1px solid black;">
+
+    <label for="Details">Details</label>
+    <textarea name="details" id="details" cols="30" rows="10" placeholder="Provide some more information about question"></textarea>
+    
+    <label for="tags">Tags</label>
+    <textarea name="tags" id="tags" cols="30" rows="10"placeholder="tags for get quick answer" required></textarea>
+
+    <button type="submit" value="submit" class="postquestion">Post Question</button>
+    
+</form>
+
+{% endblock body %}

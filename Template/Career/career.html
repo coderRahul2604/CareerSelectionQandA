@@ -1,0 +1,92 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title%}Career{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/careerStyle.css' %}">
+{% endblock %}
+
+{% block body %}
+{% load static %}
+    <div class="CareerHead">
+        <h1 class="h1">Multiple Career Options</h1>
+    </div>
+
+    <div class="CareerOp">
+        <div class="Cop">
+            <a href="Highpaying/" class="cop1"><img src="{% static '\img\money.jpg'%}" width="60%" alt="error" class="Cop1"></a>
+            <br>
+            <span class="name">High Paying Careers</span>
+        </div>
+
+        <div class="Cop">
+            <a href="TopDemanded/" class="copimg"><img src="{% static '\img\demanded.jpg'%}" width="60%" height="190vh" alt="error" class="Cop2"></a>
+            <br>
+            <span class="name">Top Demanded Careers </span>
+        </div>
+
+        <div class="Cop">
+            <a href="Unknown/" class="copimg_Resize" ><img src="{% static '\img\unknown.jpg'%}" width="60%" height="180vh" alt="error" class="Cop3"></a>
+            <br>
+            <span class="name">Unknown Career </span>
+        </div>
+
+        <div class="Cop">
+            <a href="Unique/" class="copimg"><img src="{% static '\img\unique.jpg'%}" width="70%"height="170vh"  alt="error" class="Cop5"></a>
+            <br>
+            <span class="name">Unique Careers</span>
+        </div>
+
+        <div class="Cop">
+            <a href="SkillsRequired/" class="copimg"><img src="{% static '\img\skill.jpg'%}" width="60%" alt="error" class="Cop6"></a>
+            <br>
+            <span class="name">Only Skills Required Careers</span>
+        </div>
+
+        <div class="Cop">
+            <a href="GovernmentSector/" class="copimg"><img src="{% static '\img\1592517.webp'%}" width="60%" height="160vh" alt="error" class="Cop7"></a>
+            <br>
+            <span class="name">Careers In Government Sector </span>
+        </div>
+
+        <div class="Cop">
+            <a href="Creative/" class="copimg"><img src="  {% static '\img/creative.jpg'%}" width="60%" alt="error" class="Cop8"></a>
+            <br>
+            <span class="name"> Creative Careers</span>
+        </div>
+
+        <div class="Cop">
+            <a href="Sports/" class="copimg"><img src="  {% static '\img\sport.jpg'%}" width="60%" height="170vh" alt="error" class="Cop9"></a>
+            <br>
+            <span class="name"> Sports Career</span>
+        </div>
+
+        <div class="Cop">
+            <a href="Healthcare/" class="copimg"><img src="  {% static '\img\health.jpg'%}" width="60%" alt="error" class="Cop10"></a>
+            <br>
+            <span class="name"> Healthcare Careers</span>
+        </div>
+
+        
+        <div class="Cop">
+            <a href="Finance/" class="copimg"><img src="  {% static '\img\finance.jpg'%}" width="60%" height="170vh"  alt="error" class="Cop11"></a>
+            <br>
+            <span class="name"> Finance Career</span>
+        </div>
+
+        <div class="Cop">
+            <a href="IT/" class="copimg"><img src="  {% static '\img\it.jpg'%}" width="65%"  height="170vh" alt="error" class="Cop12"></a>
+            <br>
+            <span class="name"> Careers in IT</span>
+        </div>
+        <div class="Cop">
+            <a href="Management/" class="copimg"><img src="  {% static '\img\management.jpg'%}" width="60%" alt="error" class="Cop9"></a>
+            <br>
+            <span class="name">Management</span>
+        </div>
+
+    </div>
+{% endblock %}
+
+</html>

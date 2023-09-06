@@ -1,0 +1,83 @@
+{% extends '../base.html' %}
+{% block title %} Career_options {% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/CareerPagesStyle.css' %}">
+{% endblock css %}
+
+{% block body %}
+
+{% for care in cares %}
+
+{% if care.ctitle == 'Top Highpaying Career' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Top Demanded Career' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Unknown Career' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Unique Careers' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Skills Based Careers' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Top Careers In Government Sector' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Creative Required Career' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Careers in Sports' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Healthcare' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Careers In Finance' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Careers In IT' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% elif care.ctitle == 'Career In Management' %}
+<div class="head">
+    <h1 class="head">{{care.ctitle}}</h1>
+</div>
+
+{% endif %}
+<div class="cont">
+    <a href="Career_detail/{{care.cno}}">
+    <div class="CH1">
+            <h2 class="Cop">{{care.cname}}</h2>   
+        </div>    
+    </a>
+</div>
+{% endfor %}
+
+{% endblock body %}

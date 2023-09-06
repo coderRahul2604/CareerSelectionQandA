@@ -1,0 +1,37 @@
+{% extends '../base.html' %}
+{% load humanize %}
+{% load static %}
+{% block title%}Question{% endblock%}
+
+{% block css %} 
+<link rel="stylesheet" href="{% static '/css/question.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="cont">
+    <div class="quemain">
+        <form>
+            <div class="quesearch">
+                <input type="text" name="que" placeholder="search questions" value="{{quests.title}}" width="50%">
+                <button type="submit" class="btnquesearch">Search</button>
+                <a href="/Askquestion" class="askquestion" style="text-decoration: none;">Ask Question</a>
+            </div>
+        </form>
+        {% for quest in quests %}
+        {% if quest is none %}
+           <p style="font-size:30px;"> Result Not Found </p>
+        {% else %}
+         <div class="askedque">
+             <strong><a href="/profile/{{quest.user}}" class="details" id="username">{{quest.user.username}}</a>
+             <span style="margin-left: 10px;">{{quest.add_time|date:'d/m/y : H:i:m'}}</span></strong>
+             <br><br>
+             <a href="Detailque/{{quest.id}}" class="quetitle" style="margin-top: 10px;">{{quest.title}}</a>
+             </p>
+                
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

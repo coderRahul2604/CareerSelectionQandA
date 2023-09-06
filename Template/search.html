@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}search{% endblock%}
+
+{% block css %} 
+<link rel="stylesheet" href="{% static '/css/search.css' %}">
+{% endblock css %}
+
+{% block body %}
+
+{% if not career %}
+    <p class="result"> Result not found</p>
+{% else %}
+{% for care in career %}
+    <div class="cont">
+        <a href="/Career/Career_detail/{{care.cno}}" class="link">
+        <div class="CH1">
+                <h2 class="Cop" id="">{{care.cname}}</h2>   
+            </div>    
+        </a>
+    </div>
+{% endfor %}
+{% endif %}
+
+
+{% endblock body %}

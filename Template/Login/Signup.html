@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp | Login</title>
+    <link rel="stylesheet" href="{% static '/css/loginSignup.css' %}">
+</head>
+
+<body>
+    <div class="auth">
+
+        <div class="signup" id="signup">
+            <form action="/Signup" method="POST" class="form-signup-container">
+                {% csrf_token %}
+                <h1>Signup</h1>
+                <br>
+
+                <label for="username"><b>Username</b></label>
+                <br>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <br>
+
+                <label for="email"><b>Email</b></label>
+                <br>
+                <input type="email" placeholder="Enter Email" name="email" required>
+                <br>
+
+                <label for="pass1"><b>Password</b></label>
+                <br>
+                <input type="password" placeholder="Enter Password" name="pass1" required>
+                <br>
+
+                <label for="pass2"><b>Confirm Password</b></label>
+                <br>
+                <input type="password" placeholder="Confirm Password" name="pass2" required>
+                <br>
+
+                <button type="submit" value="submit" class="btn">Signup</button>
+                <br>
+            </form>
+            <div class="alreadyRegistered">
+                <p>Already Registered ? </p>
+                <button class="displaylogin" onclick="login()" style="color: black;">Login</button>
+            </div>
+        </div>
+        <div class="login" id="login" style="display: none;">
+            <form action="/Login" method="POST">
+                {% csrf_token %}
+                <h1>Login</h1>
+
+                <label for="username"><b>Username</b></label>
+                <br>
+                <input type="text" placeholder="Enter Username" name="loginusername" required>
+                <br>
+
+                <label for="password"><b>Password</b></label>
+                <br>
+                <input type="password" placeholder="Enter Password" name="loginpassword" required>
+                <br>
+                <button type="submit" value="submit" class="btn">Login</button>
+                
+                <br>
+            </form>
+            <button class="displaylogin" onclick="signup()">Back To Signup</button>
+            <a href="/forgotpass" style="float: right; color: blacks;">Forgot Password</a>
+        </div>
+
+
+    </div>
+    <script>
+        function login() {
+            document.getElementById("login").style.display = "block";
+            document.getElementById("signup").style.display = "none";
+        }
+        function signup() {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("signup").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

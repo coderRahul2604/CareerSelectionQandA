@@ -1,0 +1,36 @@
+#Career{
+    color: white;
+}
+
+.h1{
+    margin: 10px 5px;
+    text-align: center;
+    padding: 10px;
+    background: #b3d8f58c;
+    border-radius: 10px;
+    color: rgb(52 50 69);
+}
+
+.CareerOp{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    
+}
+.Cop{
+    text-align: center;
+    padding-top: 10px;
+    cursor:pointer;
+    margin: 10px;
+}
+
+.Cop:hover{
+    box-shadow: 4px 4px 6px rgb(169, 160, 162);
+}
+
+.copimg{
+    margin: 10px;
+}
+.name{
+    margin-top: 20px;
+}

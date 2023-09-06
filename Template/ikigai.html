@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}ikigai{% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/ikigai.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="contener">
+    <h1 class="heading" style="margin-top: -30px;">IKIGAI</h1>
+    <h1 class="heading">生きがい</h1>
+    <div class="para">
+    <h2>What Is the Meaning of Ikigai?</h2>
+    <p> &emsp; &emsp; &emsp;  The Japanese word “ikigai” means a “life purpose” or “raison d’être.” Ikigai refers to defining your personal meaning of life in relation to your talents, passions, and profession, as well as what you can give to the wider world. Adherents to this philosophy believe that finding such a nuanced and personalized sense of purpose can lead to a more fulfilling life and increased longevity.</p>
+        
+    <p> &emsp; &emsp; &emsp;  Ikigai compounds two smaller Japanese words: “iki” (meaning “life”) and “gai” or “kai” (meaning “worth”). While the concept has a long history in Japan and other parts of Asia, the term recently resurged in popularity throughout the western world with the publication of Héctor García and Francesc Miralles’ 2016 book, Ikigai: The Japanese Secret to a Long and Happy Life.</p>
+    <br><br>
+    <h2>4 Key Components of Ikigai</h2><br>
+    <p>Your ikigai resides at the intersection of multiple factors in your life. These four components are essential to the Japanese concept of ikigai:<br><br>
+        
+        <b>1. Mission:</b> While defining your ikigai requires focus on what makes you tick individually as a human being, you also need to look outward to what the world needs, too. A person’s ikigai connects to something greater. Ask yourself how you can contribute to making the world a better place—it’s at least one-fourth of what makes life worth living, according to the general concept of ikigai.<br><br>
+        <b>2. Passion:</b> Self-development is as rewarding as it is challenging. To find the true meaning of life for you personally, feeling ikigai (or a sense of joy in fulfilling your purpose) is as essential as any broader duty to the common good. Define what you love to do the most and keep doing it for the rest of your life.<br><br>
+        <b>3. Profession:</b> Ikigai means making a real-life difference day in and day out, both personally and professionally. Finding a sense of fulfillment at your job is a core element to building a holistic ikigai. Look for a career that serves the world, sparks your own interest, and brings you joy.<br><br>
+        <b>4. Talent:</b> If you can pinpoint what you’re naturally good at, you have yet another core element of your personal ikigai in your grasp. Especially for younger generations, ask what talents you already possess and which you hope to develop. Spending each day doing something you love, that comes easily to you, and helps the wider world might lead you to live a happy and long life.</p><br>
+        <h2>Let's try to find out  our lkigai</h2><br>
+    <form name="ikigai" class="ikigai">
+
+        <label for="goodat"><b>What is something you are good at ? (Anything you can do better than any one or any work where no one can beat you)</b></label>
+        <input type="text" placeholder="Thing which you good at " id="first" name="first" required>
+
+        <label for="loveto"><b>What is something make enjoyable while doing ? (While doing that working you feel happy or while doing you don't remember about time) </b></label>
+        <input type="text" placeholder="Work which you love most " id="second" name="second" required>
+
+        <label for="worldNeeds"><b>What is something which world needs ?(Skill which you can do and world also need that skill) </b></label>
+        <input type="text" placeholder="Thing which world needs" id="third" name="third" required>
+
+        <label for="PaidFor"><b>What is something which you get paid for ?(The work you get money for working)</b></label>
+        <input type="text" placeholder="Work which you get paid for " id="fouth" name="fouth" required>
+
+        <button type="submit" class="btn" onclick="show(); return false">Submit</button>
+
+    </form>
+    <div class="output" >
+        <b><p id="result"></p></b><br>
+        <b><p id="result1"></p></b><br>
+        <b><p id="result2"></p></b><br>
+        <b><p id="result3"></p></b><br>
+        <b><p id="result4"></p></b><br>
+    </div>
+
+</div>
+{% block script %}
+<script>
+    function show() {
+    var Goodat = document.ikigai.first.value.trim();
+    var Loveto = document.ikigai.second.value.trim();
+    var WorldNeeds = document.ikigai.third.value.trim();
+    var PaidFor = document.ikigai.fouth.value.trim();
+
+    var result = document.getElementById('result');
+    var result1 = document.getElementById('result1');
+    var result2 = document.getElementById('result2');
+    var result3 = document.getElementById('result3');
+    var result4 = document.getElementById('result4');
+
+    // clear previous output
+    result.innerHTML = '';
+    result1.innerHTML = '';
+    result2.innerHTML = '';
+    result3.innerHTML = '';
+    result4.innerHTML = '';
+
+    if (Goodat && Loveto && WorldNeeds && PaidFor) {
+        if (Goodat.toLowerCase() == Loveto.toLowerCase() && Goodat.toLowerCase() == WorldNeeds.toLowerCase() && Goodat.toLowerCase() == PaidFor.toLowerCase()) {
+            result.innerHTML = 'Your ikigai is ' + Goodat;
+        }
+        else {
+            if (Goodat.toLowerCase() == Loveto.toLowerCase()) {
+                result1.innerHTML = 'Your Passion is ' + Goodat;
+            }
+            else {
+                result1.innerHTML = 'Your Passion is ' + Goodat + ' or ' + Loveto;
+            }
+
+            if (Goodat.toLowerCase() == PaidFor.toLowerCase()) {
+                result2.innerHTML = 'Your Profession is ' + Goodat;
+            }
+            else {
+                result2.innerHTML = 'Your Profession is ' + Goodat + ' or ' + PaidFor;
+            }
+
+            if (WorldNeeds.toLowerCase() == PaidFor.toLowerCase()) {
+                result3.innerHTML = 'Your Vocation is ' + WorldNeeds;
+            }
+            else {
+                result3.innerHTML = 'Your Vocation is ' + WorldNeeds + ' or ' + PaidFor;
+            }
+
+            if (Loveto.toLowerCase() == WorldNeeds.toLowerCase()) {
+                result4.innerHTML = 'Your Mission is ' + Loveto;
+            }
+            else {
+                result4.innerHTML = 'Your Mission is ' + WorldNeeds + ' or ' + Loveto;
+            }
+        }
+    }
+    else {
+        result.innerHTML = 'Please fill all the fields.';
+    }
+}
+</script>
+{% endblock script %}
+{% endblock %}

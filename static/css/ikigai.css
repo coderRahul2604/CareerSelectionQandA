@@ -1,0 +1,44 @@
+body{
+    box-sizing: border-box;
+    background-color: #bbbbff;
+}
+p{
+    font-size: large;
+}
+.contener{
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    width:50%;
+}
+.ikigai{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    width:100%;
+}
+
+label{
+    margin-top: 10px;
+    font-size: large;
+}
+.heading{
+    text-align: center;
+    margin:10px;
+}
+
+#first,#second, #third, #fouth, .btn{
+    width: 70%;
+    height: 6vh;
+    padding: 5px;
+    margin-top: 10px;
+}
+.btn{
+    background-color: orange;
+    border: none;
+}
+.output{
+    margin: 10px auto 10px auto;
+    width:50%;
+}

@@ -1,0 +1,200 @@
+{% extends '../base.html' %}
+{% load humanize %}
+{% load static %}
+{% block title%}Question{% endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/detailque.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+{% endblock css %}
+
+{% block body %}
+<div class="quecontainer">
+    <div class="quedetail">
+
+        <div class="quehead">
+            <h1>{{quest.title}}</h1>
+            <span class="queheaddate">{{quest.add_time|naturaltime}}</span>
+            <a href="/profile/{{quest.user}}" class="queheaduser" style="font-size: 18px;">{{quest.user.username}}</a>
+        </div>
+
+        <div class="detailcont">
+            <p class="questdetail">
+                {{quest.detail}}
+            </p>
+            <p class="questtags">
+                tags:
+                {% for tag in tags %}
+                <a href="#">{{tag}},</a>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+
+</div>
+<div class="multipleans">
+<h3 class="answerhead">Answers {{quest.answer_set.count}}</h3>
+<hr>
+{% for answer in answer %}
+
+    <div class="anscont">
+        <div class="ansdetail">
+
+            <p class="ansinfo">
+                {{answer.detail}}
+            </p>
+            <p>
+                <a href="/profile/{{answer.user}}" class="ansuser" style="font-size: 18px;">{{answer.user.username}}</a>
+                <span class="ansdate">{{answer.add_time|date:'d/m/y : H:i:m'}}</span>
+            </p>
+            
+                <div class="likedislike">
+                    <div class="like">
+                        <span class="text-success">
+                            <i class="fas fa-thumbs-up like-click" data-answer="{{answer.id}}" style="cursor:pointer; color:green;"></i>
+                        </span>
+                        <strong class="like-count-{{answer.id}}">{{answer.like_set.count}}</strong><br/>
+                    </div>
+                    <div class="dislike">
+                        <span class="text-danger">
+                            <i class="fas fa-thumbs-down dislike-click" data-answer="{{answer.id}}" style="cursor:pointer; color:red;"></i>
+                        </span>
+                        <strong class="dislike-count-{{answer.id}}">{{answer.dislike_set.count}}</strong>
+                    </div>
+                    <div class="com">
+                        <span>
+                            <i class="fas fa-comment-dots comment-click" data-answer="{{answer.id}}" style="cursor:pointer;"></i>
+                        </span>
+                        <strong class="comment-count-{{answer.id}}">{{answer.comment_set.count}}</strong>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="commentBlock" class="commentcont">
+        <h3 class="commenthead">Comments</h3>
+        <hr>
+        {% for comment in answer.comment_set.all %}
+        <div class="comdetail">
+            <p>{{comment.comment}}</p>
+            <a href="#">{{comment.user.username}}</a>
+            <span class="ansdate">{{comment.add_time|naturaltime}}</span>
+        </div>
+        <hr>
+        {% endfor %}
+        
+        <form class="commentForm" action="add_comment/{{answer.id}}/" method="POST">
+            {% csrf_token %}
+            <input class="comment" name="comment" type="text" required>
+            <br>
+            <button type="submit" value="submit" class="addcomment">Post Comment</button>
+        </form>
+    </div>
+    <hr>
+    
+    {% endfor %}
+    <h3 class="answerhead">Your Answers</h3>
+    <form method="post" action="post_answer/{{quest.id}}/" class="giveanswer">
+        {% csrf_token %}
+        <textarea name="useranswer" id="useranswer" cols="30" rows="10" placeholder="Add another answer" required ></textarea>
+        <br>
+        <button type="submit" value="submit" class="addanswer">Post Answer</button>
+    </form>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        
+        $(".like-click").on('click',function(){
+            
+            var answerid=$(this).data('answer');
+
+            $.ajax({
+                url:"save-like",
+                type:"post",
+                data:{
+                    answerid:answerid,
+                    csrfmiddlewaretoken:"{{csrf_token}}"
+                },
+                dataType:'json',
+                success:function(res){
+                    var likeforans=$(".like-count-"+answerid).text();
+                    if(res.bool==true){
+                        $(".like-count-"+answerid).text(parseInt(likeforans)+1);
+                    }
+                }
+            });
+        });
+
+        $(".dislike-click").on('click',function(){
+            var answerid=$(this).data('answer');
+
+            $.ajax({
+                url:"save-dislike",
+                type:"post",
+                data:{
+                    answerid:answerid,
+                    csrfmiddlewaretoken:"{{csrf_token}}"
+                },
+                dataType:'json',
+                success:function(res){
+                    var dislikeforans=$(".dislike-count-"+answerid).text();
+                    if(res.bool==true){
+                        $(".dislike-count-"+answerid).text(parseInt(dislikeforans)+1);
+                    }
+                }
+            });
+        });
+
+        $('.comment-click').on('click', function(){
+            var commentBlock = $('.commentcont {{answer.id}}');
+            if (commentBlock.css('display') === 'none') {
+                commentBlock.css('display', 'block');
+            } else {
+                commentBlock.css('display', 'none');
+            }
+        });
+</script>
+<!--
+    <script>
+        let likeButton = document.getElementById("likeButton");
+        let dislikeButton = document.getElementById("dislikeButton");
+        let commentBlock = document.getElementById("commentBlock");
+        let commentButton = document.getElementById("commentButton");
+        
+    let currentButton = null;
+    
+    likeButton.onclick = function() {
+      if (currentButton === dislikeButton) {
+        currentButton.innerHTML = `<i class="far fa-thumbs-down"></i>`;
+      }
+      currentButton = this;
+      this.innerHTML = `<i class="fas fa-thumbs-up liked"></i>`;
+    };
+  
+    dislikeButton.onclick = function() {
+      if (currentButton === likeButton) {
+        currentButton.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+      }
+      currentButton = this;
+      this.innerHTML = `<i class="fas fa-thumbs-down disliked"></i>`;
+    };
+    document.getElementById("commentButton").onclick = function() {
+        if (commentBlock.style.display === "block") {
+            commentBlock.style.display = "none";
+            currentButton=this;
+            this.innerHTML=`<i class="far fa-comment-dots"></i>`
+        }
+        else {
+            currentButton=this;
+            this.innerHTML=`<i class="fas fa-comment-dots"></i>`
+            commentBlock.style.display = "block";
+        }
+    };
+  </script>
+-->
+{% endblock body %}

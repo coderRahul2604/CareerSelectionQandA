@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp | Login</title>
+    <link rel="stylesheet" href="{% static '/css/forgotpass.css' %}">
+</head>
+
+<body>
+    <div class="forgotpass" id="forgotpass">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="pass1"><b>Password</b></label>
+            <br>
+            <input type="password" placeholder="Enter Password" name="pass1" required>
+            <br>
+
+            <label for="pass2"><b>Confirm Password </b></label>
+            <br>
+            <input type="password" placeholder="Confirm Password" name="pass2" required>
+            <br>
+
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{% extends '../base.html' %}
+{% block title %} Career_options {% endblock title %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/Career_detail.css' %}">
+{% endblock css %}
+
+{% block body %}
+{% for care_name in care_names %}
+
+<div class="detailcont">
+    <h1 class="head">{{care_name.cname}}</h1>
+    <div class="CH1">
+        <pre class="Cop" id="">{{care_name.cdetail}}</pre>
+    </div>
+
+    
+    <h3 class="questionheading">Questions<h3>
+        {% for quest in quests %}
+        <div class="askedque">
+            <strong><a href="/profile/{{quest.user}}" class="details" id="username">{{quest.user.username}}</a>
+            <span style="margin-left: 10px;">{{quest.add_time|date:'d/m/y : H:i:m'}}</span></strong>
+            <br><br>
+            <a href="/Question/Detailque/{{quest.id}}" class="quetitle" style="margin-top: 10px;">{{quest.title}}</a>
+            </p>
+               
+        </div>
+        
+    {% endfor %}
+    
+    <h2 class="askquebtn" id="showque" onclick="showQuestion()" style="cursor: pointer;"> Ask Question </h2>
+
+    <form action="/Career/askque/" method="post" class="Askquestion" id="askForm" style="display: none;">
+        {% csrf_token %}
+        
+        <label for="Question">Question</label>
+        <br>
+        <input class="quefield" type="text" name="quetitle" id="quetitle" placeholder="Write your question" required style="padding: 6px; width: 100%; border-radius: 5px; border: 1px solid black;">
+        <br>
+        <label for="Details">Details</label>
+        <br>
+        <textarea name="details" id="details" cols="30" rows="10" placeholder="Provide some more information about question"></textarea>
+        <br>
+        <label for="tags">Tags</label>
+        <br>
+        <textarea name="tags" id="tags" cols="30" rows="10"placeholder="tags for get quick answer" required>{{care_name.cname}}, {{care_name.category}}</textarea>
+        <br>
+        <div class="submit" style="width:100%;display: flex;align-items: center;">
+            <button type="submit" value="submit" class="postquestion" >Post Question</button>
+        </div>
+        
+    </form>
+
+
+</div>
+{% endfor %}
+{% block script %}
+<script>
+    var askForm = document.getElementById('askForm');
+    function showQuestion(){
+        if (askForm.style.display === "block"){
+            askForm.style.display = "none";
+        }
+        else{
+            askForm.style.display = "block";
+        }
+    }
+
+</script>
+{% endblock script %}
+
+{% endblock body %}
