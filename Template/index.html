@@ -4,222 +4,205 @@
 
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static '/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock css %}
 
 {% block body %}
 <div class="main">
     <div class="slidecontent">
-
         <div class="slideContener">
-            <!--Career-->
             <div class="slideshow">
                 <a href="/Career">
-                    <img src="{% static '\img\slider\1.jpg' %}" alt="error" class="slide1">
+                    <img src="{% static 'img/slider/1.jpg' %}" alt="Explore career paths" class="slide1">
                 </a>
             </div>
-            <!--Ask question-->
             <div class="slideshow">
                 <a href="/Askquestion">
-                    <img src="{% static '\img\slider\2.jpg' %}" alt="Error" class="slide2">
+                    <img src="{% static 'img/slider/2.jpg' %}" alt="Ask a career question" class="slide2">
                 </a>
             </div>
-            <!--Question-->
             <div class="slideshow">
                 <a href="/Question">
-                    <img src="{% static '\img\slider\3.jpg' %}" alt="Error" class="slide3">
+                    <img src="{% static 'img/slider/3.jpg' %}" alt="Answer community questions" class="slide3">
                 </a>
             </div>
-
         </div>
     </div>
+
     <div class="text">
         <p class="textbox">
             <a href="/Askquestion" class="askquestion">
-                Ask question related to Career or for career guidance</a>
+                Ask a question related to career or get career guidance
+            </a>
         </p>
 
         <p class="textbox">
             <a href="/ikigai" class="selectCareer">
-            Let's Find out the purpose of your life by using ikigai</a>
+                Find the purpose of your life using ikigai
+            </a>
         </p>
 
-        <p class="textbox"><a href="/Question" class="giveans">
-                Be part of community by giving the answers of the question.</a>
+        <p class="textbox">
+            <a href="/Question" class="giveans">
+                Be part of the community by answering questions
+            </a>
         </p>
     </div>
-    <h3 class="oph1" style="text-align: center;"> Some Career options </h3>
+
+    <h3 class="oph1">Some career options</h3>
+
     <div class="indexcareer">
-
         <div class="options1" id="scroll1">
-
             <div class="op1">
+
                 <div class="opc1">
-                    <a href="/Career/IT/Career_detail/80"><img src=" {% static 'img/index/Website Developer.jpg' %}" class="c1"
-                            width="250px" height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;">Full-stack Developer</span>
-                        </a>
+                    <a href="/Career/IT/Career_detail/80">
+                        <img src="{% static 'img/index/Website Developer.jpg' %}" alt="Full-stack developer" class="c1">
+                        <span class="careerName">Full-stack developer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/IT/Career_detail/79"><img src="{% static 'img/index/Administrator.jpg' %}" class="c2"
-                            width="250px" height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;">Database Administrator</span>
-                        </a>
+                    <a href="/Career/IT/Career_detail/79">
+                        <img src="{% static 'img/index/Administrator.jpg' %}" alt="Database administrator" class="c2">
+                        <span class="careerName">Database administrator</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/IT/Career_detail/81"><img src="{% static 'img/index/Software engineer.jpg' %}" class="c3"
-                            width="250px" height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;">Senior Software Engineer</span>
-                        </a>
+                    <a href="/Career/IT/Career_detail/81">
+                        <img src="{% static 'img/index/Software engineer.jpg' %}" alt="Senior software engineer" class="c3">
+                        <span class="careerName">Senior software engineer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Finance/Career_detail/67"><img src="{% static 'img/index/Accounting.jpeg' %}" class="c4" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;">Public Accounting</span>
-                        </a>
+                    <a href="/Career/Finance/Career_detail/67">
+                        <img src="{% static 'img/index/Accounting.jpeg' %}" alt="Public accounting" class="c4">
+                        <span class="careerName">Public accounting</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Finance/Career_detail/69"><img src="{% static 'img/index/Investment Banker.jpeg' %}" class="c5" width="250px" height="150vh"
-                            alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;">Investment Banking</span>
-                        </a>
+                    <a href="/Career/Finance/Career_detail/69">
+                        <img src="{% static 'img/index/Investment Banker.jpeg' %}" alt="Investment banking" class="c5">
+                        <span class="careerName">Investment banking</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Finance/Career_detail/68"><img src=" {% static 'img/index/Co operate Finance.jpeg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Corporate Finance</span>
-                        </a>
+                    <a href="/Career/Finance/Career_detail/68">
+                        <img src="{% static 'img/index/Co operate Finance.jpeg' %}" alt="Corporate finance" class="c6">
+                        <span class="careerName">Corporate finance</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/12"><img src=" {% static 'img/index/Dentist.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Dentist</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/12">
+                        <img src="{% static 'img/index/Dentist.jpg' %}" alt="Dentist" class="c6">
+                        <span class="careerName">Dentist</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/13"><img src=" {% static 'img/index/Nurse.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Registered Nurse</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/13">
+                        <img src="{% static 'img/index/Nurse.jpg' %}" alt="Registered nurse" class="c6">
+                        <span class="careerName">Registered nurse</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/14"><img src=" {% static 'img/index/Pharmacist.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Pharmacist</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/14">
+                        <img src="{% static 'img/index/Pharmacist.jpg' %}" alt="Pharmacist" class="c6">
+                        <span class="careerName">Pharmacist</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/55"><img src=" {% static 'img/index/Cardiovascular Perfusionist.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Cardiovascular Perfusionist</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/55">
+                        <img src="{% static 'img/index/Cardiovascular Perfusionist.jpg' %}" alt="Cardiovascular perfusionist" class="c6">
+                        <span class="careerName">Cardiovascular perfusionist</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/56"><img src=" {% static 'img/index/Audiologist.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Audiologist</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/56">
+                        <img src="{% static 'img/index/Audiologist.jpg' %}" alt="Audiologist" class="c6">
+                        <span class="careerName">Audiologist</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Healthcare/Career_detail/57"><img src=" {% static 'img/index/Cardiac Sonographer.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Cardiac Sonographer</span>
-                        </a>
+                    <a href="/Career/Healthcare/Career_detail/57">
+                        <img src="{% static 'img/index/Cardiac Sonographer.jpg' %}" alt="Cardiac sonographer" class="c6">
+                        <span class="careerName">Cardiac sonographer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Unique/Career_detail/32"><img src=" {% static 'img/index/Tea Testing.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Tea Testing</span>
-                        </a>
+                    <a href="/Career/Unique/Career_detail/32">
+                        <img src="{% static 'img/index/Tea Testing.jpg' %}" alt="Tea testing" class="c6">
+                        <span class="careerName">Tea testing</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Unique/Career_detail/33"><img src=" {% static 'img/index/Sound Engineer.jpeg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Sound Engineer</span>
-                        </a>
+                    <a href="/Career/Unique/Career_detail/33">
+                        <img src="{% static 'img/index/Sound Engineer.jpeg' %}" alt="Sound engineer" class="c6">
+                        <span class="careerName">Sound engineer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/Unique/Career_detail/34"><img src=" {% static 'img/index/Food Scientist.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> Food Scientist</span>
-                        </a>
+                    <a href="/Career/Unique/Career_detail/34">
+                        <img src="{% static 'img/index/Food Scientist.jpg' %}" alt="Food scientist" class="c6">
+                        <span class="careerName">Food scientist</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/GovernmentSector/Career_detail/1"><img src=" {% static 'img/index/IAS.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> IAS</span>
-                        </a>
+                    <a href="/Career/GovernmentSector/Career_detail/1">
+                        <img src="{% static 'img/index/IAS.jpg' %}" alt="IAS officer" class="c6">
+                        <span class="careerName">IAS officer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/GovernmentSector/Career_detail/2"><img src=" {% static 'img/index/IPS.jpg' %}" class="c6" width="250px"
-                            height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> IPS</span>
-                        </a>
+                    <a href="/Career/GovernmentSector/Career_detail/2">
+                        <img src="{% static 'img/index/IPS.jpg' %}" alt="IPS officer" class="c6">
+                        <span class="careerName">IPS officer</span>
+                    </a>
                 </div>
 
                 <div class="opc1">
-                    <a href="/Career/GovernmentSector/Career_detail/3"><img src=" {% static 'img/index/NDA and Defense Officer.jpg' %}" class="c6" width="250px" height="150vh" alt="Error">
-                            <br>
-                            <span class="careerName" style="margin-top: 10px;"> NDA and Defense Officer</span>
-                        </a>
+                    <a href="/Career/GovernmentSector/Career_detail/3">
+                        <img src="{% static 'img/index/NDA and Defense Officer.jpg' %}" alt="NDA and defense officer" class="c6">
+                        <span class="careerName">NDA and defense officer</span>
+                    </a>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-
 {% endblock body %}
 
 {% block script %}
-
+<script>
 let slideIndex = 0;
-showSlides();
+const slides = document.getElementsByClassName("slideshow");
 
 function showSlides() {
-let i;
-const slides = document.getElementsByClassName("slideshow");
-for (i = 0; i < slides.length; i++) {
-  slides[i].style.display = "none";  
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 5000);
 }
-slideIndex++;
-if (slideIndex > slides.length) {slideIndex = 1}    
-slides[slideIndex-1].style.display = "block";  
-setTimeout(showSlides, 5000); // Change image every 5 seconds
-}
+
+showSlides();
+</script>
 {% endblock script %}
 
-
-</body>
